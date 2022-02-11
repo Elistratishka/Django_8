@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from .models import Post
 from .filters import PostFilter
@@ -46,8 +48,10 @@ class PostSearch(ListView):
 class PostAdd(CreateView):
     model = Post
     form_class = PostForm
+    template_name = 'News/Post_update.html'
 
 
+@method_decorator(login_required, name='dispatch')
 class PostEdit(UpdateView):
     model = Post
     form_class = PostForm
@@ -60,4 +64,4 @@ class PostEdit(UpdateView):
 class PostDelete(DeleteView):
     model = Post
     queryset = Post.objects.all()
-    success_url = '/posts/'
+    success_url = '/news/'

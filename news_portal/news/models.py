@@ -7,7 +7,7 @@ class Author(models.Model):
     rating = models.IntegerField('Рейтинг', default=0)
 
     def __str__(self):
-        return self.name
+        return self.name.username
 
     @property
     def update_rating(self):
@@ -67,6 +67,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.header
+
+    def get_absolute_url(self):
+        return f'/news/{self.pk}'
 
     class Meta:
         verbose_name = 'Публикация'
