@@ -133,7 +133,8 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/news/'
+LOGOUT_REDIRECT_URL = '/news/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
