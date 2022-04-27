@@ -6,6 +6,10 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class PostList(ListView):
